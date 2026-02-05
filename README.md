@@ -1,6 +1,6 @@
 # Ilya Drive Reading List (Codex)
 
-A drivable, low-poly 3D mini-world inspired by Bruno Simon's portfolio, with 30 reading-list stops rendered as signboards. Drive to a stop, press **E**, and read the paper in an in-app viewer.
+A Minecraft-themed driving world to explore and open landmark AI papers (**Ilya Sutskever's reading list**).
 
 ## Local Setup
 
