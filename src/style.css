@@ -1,0 +1,477 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap');
+
+:root {
+  color-scheme: light;
+  --mc-bg: #7dbf4a;
+  --mc-sky: #9fd7ff;
+  --mc-panel: #2f3a2f;
+  --mc-panel-border-dark: #111611;
+  --mc-panel-border-light: #5d765d;
+  --mc-text: #e8f2d0;
+  --mc-muted: #b8c89a;
+  --mc-accent: #ffd45a;
+  --mc-danger: #ff8d78;
+  --mc-shadow: 0 6px 0 rgba(16, 18, 12, 0.65);
+  --mc-radius: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  font-family: 'VT323', monospace;
+  font-size: 20px;
+  background: linear-gradient(180deg, var(--mc-sky) 0%, #8ecdf5 48%, var(--mc-bg) 100%);
+  color: var(--mc-text);
+  image-rendering: pixelated;
+}
+
+#app {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+}
+
+#scene-canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+  outline: none;
+  touch-action: none;
+  cursor: crosshair;
+}
+
+#ui {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.panel {
+  background: var(--mc-panel);
+  border: 3px solid var(--mc-panel-border-dark);
+  outline: 3px solid var(--mc-panel-border-light);
+  border-radius: var(--mc-radius);
+  padding: 12px 14px;
+  box-shadow: var(--mc-shadow);
+}
+
+.hud-card {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  width: 330px;
+  display: grid;
+  gap: 8px;
+}
+
+.hud-top {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.hud-label {
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.5rem;
+  color: var(--mc-muted);
+}
+
+.hud-stop {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.62rem;
+  color: #fff8d7;
+}
+
+.hud-title {
+  min-height: 1.5em;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.72rem;
+  line-height: 1.35;
+  color: #fff1b8;
+  text-shadow: 0 1px 0 #20170d;
+}
+
+.hud-progress {
+  position: relative;
+  height: 12px;
+  background: #162114;
+  border: 2px solid #0f150c;
+  outline: 2px solid #34462f;
+  overflow: hidden;
+}
+
+.hud-progress-bar {
+  height: 100%;
+  width: 0%;
+  background: repeating-linear-gradient(
+    90deg,
+    #f2d466 0,
+    #f2d466 10px,
+    #e3be46 10px,
+    #e3be46 20px
+  );
+  transition: width 0.2s steps(12, end);
+}
+
+.hud-warning {
+  font-size: 0.95rem;
+  color: var(--mc-danger);
+}
+
+.controls-card {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  width: 262px;
+  display: grid;
+  gap: 7px;
+  color: var(--mc-muted);
+}
+
+.controls-title {
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.48rem;
+}
+
+.controls-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 5px;
+}
+
+.controls-text {
+  margin-left: 6px;
+  font-size: 1.02rem;
+  color: var(--mc-text);
+}
+
+.keycap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 28px;
+  padding: 3px 7px;
+  border: 2px solid #12180f;
+  outline: 1px solid #758a66;
+  border-radius: 0;
+  background: #45543a;
+  color: #f2f8dd;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.46rem;
+  text-transform: uppercase;
+  line-height: 1.7;
+  box-shadow: 0 2px 0 rgba(10, 10, 10, 0.55);
+}
+
+.interaction {
+  position: absolute;
+  left: 50%;
+  bottom: 24px;
+  transform: translateX(-50%);
+  display: grid;
+  gap: 6px;
+  align-items: center;
+  padding: 9px 14px;
+  border: 3px solid #111611;
+  outline: 2px solid #6e8163;
+  background: rgba(47, 58, 47, 0.95);
+  box-shadow: var(--mc-shadow);
+  text-align: center;
+  pointer-events: auto;
+  border-radius: 0;
+  animation: pulse 0.95s steps(2, end) infinite;
+}
+
+.viewer-close-hint {
+  animation: none;
+}
+
+.interaction-title {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.52rem;
+  line-height: 1.45;
+}
+
+.interaction-hint {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.5rem;
+  letter-spacing: 0.06em;
+  color: #d5e8aa;
+  text-transform: uppercase;
+}
+
+.focus-hint {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  padding: 8px 12px;
+  border: 2px solid #10150e;
+  outline: 2px solid #5b7251;
+  border-radius: 0;
+  background: rgba(36, 46, 35, 0.95);
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.42rem;
+  letter-spacing: 0.08em;
+  color: var(--mc-muted);
+}
+
+.viewer {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: min(48vw, 700px);
+  height: min(64vh, 610px);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 12px;
+  border: 4px solid #0f130e;
+  outline: 3px solid #6c7e62;
+  border-radius: 0;
+  background: #2f3a2f;
+  box-shadow: 0 8px 0 rgba(11, 14, 10, 0.8);
+  pointer-events: auto;
+  overflow: hidden;
+}
+
+.viewer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.viewer-title {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.58rem;
+  line-height: 1.4;
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #f6f0cf;
+}
+
+.viewer-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.viewer-body {
+  position: relative;
+  flex: 1;
+  overflow: hidden;
+  border: 3px solid #141913;
+  outline: 2px solid #596c50;
+  border-radius: 0;
+  background: #223023;
+}
+
+.viewer-body iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background: #f8f8f8;
+}
+
+.viewer-loading {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  gap: 10px;
+  background: rgba(31, 38, 30, 0.95);
+  z-index: 3;
+  color: var(--mc-muted);
+}
+
+.viewer-loading-text {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.45rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.spinner {
+  width: 26px;
+  height: 26px;
+  border: 4px solid #2f3a2f;
+  border-top-color: #f4dc7e;
+  border-left-color: #f4dc7e;
+  animation: spin 0.8s steps(4, end) infinite;
+}
+
+.viewer-fallback {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 18px;
+  text-align: center;
+  background: rgba(25, 30, 24, 0.96);
+  color: #d6e5b2;
+  z-index: 2;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.47rem;
+  line-height: 1.8;
+}
+
+.btn {
+  pointer-events: auto;
+  background: #44563d;
+  border: 2px solid #111611;
+  outline: 1px solid #7a8d6b;
+  color: #f0f6da;
+  padding: 6px 10px;
+  border-radius: 0;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.42rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: transform 0.05s linear;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn-close {
+  background: #5a3028;
+  color: #ffd8cb;
+}
+
+.toasts {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  display: grid;
+  gap: 10px;
+  pointer-events: none;
+  z-index: 11;
+}
+
+.toast {
+  pointer-events: auto;
+  padding: 8px 11px;
+  border: 2px solid #10150f;
+  outline: 1px solid #6d8160;
+  border-radius: 0;
+  background: rgba(44, 56, 42, 0.96);
+  color: var(--mc-text);
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.4rem;
+  line-height: 1.6;
+  box-shadow: var(--mc-shadow);
+}
+
+.toast.error {
+  outline-color: #a74e43;
+}
+
+.toast.warning {
+  outline-color: #b49a42;
+}
+
+.toast.info {
+  outline-color: #6d8f5f;
+}
+
+.diagnostics {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 255px;
+  display: grid;
+  gap: 5px;
+  font-size: 1rem;
+}
+
+.diagnostics-title {
+  text-transform: uppercase;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.45rem;
+  letter-spacing: 0.11em;
+  color: #d2e5ae;
+}
+
+.diagnostics-row {
+  display: flex;
+  justify-content: space-between;
+  color: var(--mc-muted);
+}
+
+.hidden {
+  display: none;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: translateX(-50%) scale(1);
+  }
+  50% {
+    transform: translateX(-50%) scale(1.02);
+  }
+}
+
+@media (max-width: 1000px) {
+  .viewer {
+    width: calc(100vw - 24px);
+    height: 58vh;
+    left: 12px;
+    right: 12px;
+    top: 14px;
+  }
+
+  .hud-card {
+    width: min(60vw, 330px);
+  }
+}
+
+@media (max-width: 700px) {
+  .controls-card {
+    width: 230px;
+    bottom: 12px;
+    left: 12px;
+  }
+
+  .hud-card {
+    left: 12px;
+    top: 12px;
+    width: min(76vw, 320px);
+  }
+
+  .viewer-title {
+    font-size: 0.5rem;
+  }
+
+  .focus-hint {
+    display: none;
+  }
+}

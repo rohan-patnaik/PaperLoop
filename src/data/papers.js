@@ -1,0 +1,35 @@
+export const papers = [
+  { "id": 1,  "title": "CS231n: Convolutional Neural Networks for Visual Recognition", "url": "https://cs231n.github.io/" },
+  { "id": 2,  "title": "The Unreasonable Effectiveness of Recurrent Neural Networks", "url": "https://karpathy.github.io/2015/05/21/rnn-effectiveness/" },
+  { "id": 3,  "title": "Understanding LSTM Networks", "url": "https://colah.github.io/posts/2015-08-Understanding-LSTMs/" },
+  { "id": 4,  "title": "The Annotated Transformer", "url": "https://nlp.seas.harvard.edu/2018/04/03/attention.html" },
+  { "id": 5,  "title": "ImageNet Classification with Deep Convolutional Neural Networks (AlexNet)", "url": "https://proceedings.neurips.cc/paper_files/paper/2012/hash/c399862d3b9d6b76c8436e924a68c45b-Abstract.html" },
+
+  { "id": 6,  "title": "Deep Residual Learning for Image Recognition (ResNet)", "url": "https://ar5iv.labs.arxiv.org/html/1512.03385" },
+  { "id": 7,  "title": "Attention Is All You Need", "url": "https://ar5iv.labs.arxiv.org/html/1706.03762" },
+  { "id": 8,  "title": "Neural Machine Translation by Jointly Learning to Align and Translate", "url": "https://ar5iv.labs.arxiv.org/html/1409.0473" },
+  { "id": 9,  "title": "Pointer Networks", "url": "https://ar5iv.labs.arxiv.org/html/1506.03134" },
+  { "id": 10, "title": "Recurrent Neural Network Regularization", "url": "https://ar5iv.labs.arxiv.org/html/1409.2329" },
+  { "id": 11, "title": "Generating Sequences With Recurrent Neural Networks", "url": "https://ar5iv.labs.arxiv.org/html/1308.0850" },
+  { "id": 12, "title": "On the difficulty of training Recurrent Neural Networks", "url": "https://ar5iv.labs.arxiv.org/html/1211.5063" },
+  { "id": 13, "title": "Identity Mappings in Deep Residual Networks", "url": "https://ar5iv.labs.arxiv.org/html/1603.05027" },
+  { "id": 14, "title": "Order Matters: Sequence to sequence for sets", "url": "https://ar5iv.labs.arxiv.org/html/1511.06391" },
+  { "id": 15, "title": "Multi-Scale Context Aggregation by Dilated Convolutions", "url": "https://ar5iv.labs.arxiv.org/html/1511.07122" },
+
+  { "id": 16, "title": "Neural Turing Machines", "url": "https://ar5iv.labs.arxiv.org/html/1410.5401" },
+  { "id": 17, "title": "A simple neural network module for relational reasoning", "url": "https://ar5iv.labs.arxiv.org/html/1706.01427" },
+  { "id": 18, "title": "Relational recurrent neural networks", "url": "https://ar5iv.labs.arxiv.org/html/1806.01822" },
+  { "id": 19, "title": "Variational Lossy Autoencoder", "url": "https://ar5iv.labs.arxiv.org/html/1611.02731" },
+  { "id": 20, "title": "GPipe: Easy Scaling with Micro-Batch Pipeline Parallelism", "url": "https://ar5iv.labs.arxiv.org/html/1811.06965" },
+  { "id": 21, "title": "Deep Speech 2: End-to-End Speech Recognition in English and Mandarin", "url": "https://ar5iv.labs.arxiv.org/html/1512.02595" },
+  { "id": 22, "title": "Neural Message Passing for Quantum Chemistry", "url": "https://ar5iv.labs.arxiv.org/html/1704.01212" },
+  { "id": 23, "title": "Machine Learning: The High-Interest Credit Card of Technical Debt", "url": "https://research.google/pubs/machine-learning-the-high-interest-credit-card-of-technical-debt/" },
+
+  { "id": 24, "title": "The First Law of Complexodynamics", "url": "https://scottaaronson.blog/?p=762" },
+  { "id": 25, "title": "Quantifying the Rise and Fall of Complexity in Closed Systems: The Coffee Automaton", "url": "https://ar5iv.org/abs/1405.6903" },
+  { "id": 26, "title": "Scaling Laws for Neural Language Models", "url": "https://ar5iv.labs.arxiv.org/html/2001.08361" },
+  { "id": 27, "title": "A Tutorial Introduction to the Minimum Description Length Principle", "url": "https://ar5iv.labs.arxiv.org/html/math/0406077" },
+  { "id": 28, "title": "Keeping Neural Networks Simple by Minimizing the Description Length of the Weights", "url": "https://www.cs.toronto.edu/~fritz/absps/colt93.pdf" },
+  { "id": 29, "title": "Machine Super Intelligence (Shane Legg)", "url": "https://vetta.org/documents/Machine_Super_Intelligence.pdf" },
+  { "id": 30, "title": "Kolmogorov Complexity (book scan / reference PDF)", "url": "https://www.lirmm.fr/~ashen/kolmbook-eng-scan.pdf" }
+];

@@ -1,0 +1,74 @@
+# Ilya Drive Reading List (Codex)
+
+A drivable, low-poly 3D mini-world inspired by Bruno Simon's portfolio, with 30 reading-list stops rendered as signboards. Drive to a stop, press **E**, and read the paper in an in-app viewer.
+
+## Local Setup
+
+```bash
+npm install
+npm run dev
+```
+
+Build and preview the production build:
+
+```bash
+npm run build
+npm run preview
+```
+
+Run unit tests:
+
+```bash
+npm run test
+```
+
+Watch mode:
+
+```bash
+npm run test:watch
+```
+
+Optional UI runner:
+
+```bash
+npm run test:ui
+```
+
+Run end-to-end tests (Playwright):
+
+```bash
+npx playwright install
+npm run test:e2e
+```
+
+## Controls
+
+- **WASD / Arrow keys**: Drive + steer
+- **Space**: Brake
+- **Shift**: Boost
+- **E**: Interact (when near a stop)
+- **Esc**: Unfocus controls / close viewer
+- **`~` (backquote)**: Toggle diagnostics panel (dev/test builds)
+
+## Deployment
+
+### Vercel
+1. Push the project to a Git repo.
+2. In Vercel, click **New Project** and import the repo.
+3. Use:
+   - **Build Command**: `npm run build`
+   - **Output Directory**: `dist`
+4. Deploy.
+
+### Netlify
+1. Push the project to a Git repo.
+2. In Netlify, click **Add new site** -> **Import an existing project**.
+3. Use:
+   - **Build Command**: `npm run build`
+   - **Publish Directory**: `dist`
+4. Deploy.
+
+## Notes
+Some resources block embedding with CSP / X-Frame-Options. If the in-app viewer can't load a page, a fallback message appears and the **Open in new tab** button still works.
+
+The app validates the reading list on startup. If data is missing or invalid (for example only 29 papers), a warning toast appears and the HUD shows a small warning while still running the game with the valid entries.
