@@ -2,6 +2,12 @@
 
 A Minecraft-themed driving world to explore and open landmark AI papers (**Ilya Sutskever's reading list**).
 
+## Demo Video
+
+<video src="./docs/media/screen-capture.mp4" controls width="960"></video>
+
+If the embedded player does not render in your GitHub view, open the video directly: [screen-capture.mp4](./docs/media/screen-capture.mp4)
+
 ## Local Setup
 
 ```bash
