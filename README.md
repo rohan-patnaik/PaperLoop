@@ -4,9 +4,9 @@ A Minecraft-themed driving world to explore and open landmark AI papers (**Ilya 
 
 ## Demo Video
 
-<video src="./docs/media/screen-capture.mp4" controls width="960"></video>
+[![Demo preview](./docs/media/screen-capture-preview.webp)](./docs/media/screen-capture.mp4)
 
-If the embedded player does not render in your GitHub view, open the video directly: [screen-capture.mp4](./docs/media/screen-capture.mp4)
+The preview above auto-plays as an animated image in GitHub README. Click it to open the full MP4: [screen-capture.mp4](./docs/media/screen-capture.mp4)
 
 ## Local Setup
 
