@@ -58,6 +58,8 @@ npm run test:e2e
 
 ## Deployment
 
+Live app: [https://mypaperloop.vercel.app](https://mypaperloop.vercel.app)
+
 ### Vercel
 1. Push the project to a Git repo.
 2. In Vercel, click **New Project** and import the repo.
