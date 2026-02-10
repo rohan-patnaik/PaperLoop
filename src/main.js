@@ -53,7 +53,27 @@ const resetInput = () => {
 
 let controlsEnabled = true;
 let nearestStop = null;
-ui.dismissFocusHint();
+const updateControlAvailability = (enabled) => {
+  controlsEnabled = enabled;
+  if (!enabled) {
+    resetInput();
+  }
+  ui.setFocusHint(!enabled && !ui.isViewerOpen());
+};
+
+updateControlAvailability(document.activeElement === canvas);
+
+canvas.addEventListener('pointerdown', () => {
+  canvas.focus();
+});
+
+canvas.addEventListener('focus', () => {
+  updateControlAvailability(true);
+});
+
+canvas.addEventListener('blur', () => {
+  updateControlAvailability(false);
+});
 
 window.addEventListener('keydown', (event) => {
   if (event.code === 'Backquote') {
@@ -153,7 +173,7 @@ window.addEventListener('keyup', (event) => {
 });
 
 window.addEventListener('blur', () => {
-  resetInput();
+  updateControlAvailability(false);
 });
 
 window.addEventListener('resize', () => sceneManager.resize());
@@ -174,6 +194,7 @@ const tick = () => {
 
   stops.setHighlighted(nearestStop);
   stops.update(elapsed);
+  ui.setFocusHint(!controlsEnabled && !ui.isViewerOpen());
 
   ui.updateInteraction({
     stop: near ? near.paper : null,

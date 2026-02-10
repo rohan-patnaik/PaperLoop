@@ -25,6 +25,8 @@ describe('validatePapers', () => {
     const result = validatePapers(list);
     expect(result.ok).toBe(false);
     expect(result.errors.some((err) => err.code === 'duplicate_id')).toBe(true);
+    expect(result.validPapers.some((paper) => paper.id === 1)).toBe(false);
+    expect(result.validPapers).toHaveLength(28);
   });
 
   it('fails when ids are out of range', () => {

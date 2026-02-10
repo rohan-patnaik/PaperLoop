@@ -126,6 +126,12 @@ export const validatePapers = (papers, expectedCount = 30) => {
     );
   }
 
+  if (duplicateIds.size > 0) {
+    result.validPapers = result.validPapers.filter(
+      (paper) => !duplicateIds.has(paper.id)
+    );
+  }
+
   result.ok = result.errors.length === 0;
   return result;
 };

@@ -1,6 +1,6 @@
-# Ilya Drive Reading List (Codex)
+# Paperloop
 
-A Minecraft-themed driving world to explore and open landmark AI papers (**Ilya Sutskever's reading list**).
+A Minecraft-themed driving world to explore and open landmark AI papers.
 
 ## Demo Video
 
